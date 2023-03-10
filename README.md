@@ -11,25 +11,43 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Project steps
 
-1.install laravel
-composer create-project --prefer-dist laravel/laravel project-name
+1. install laravel
+   composer create-project --prefer-dist laravel/laravel project-name
 
-2.link database on .env
+2. link database on .env
 
-3.creer table migrations
-php artisan make:migration create_annonces_table --create=annonces
-modifier le schema: avec les bonnes informations
-php artisan migrate
+3. creer table migrations
+   php artisan make:migration create_annonces_table --create=annonces
+   modifier le schema: avec les bonnes informations
+   php artisan migrate
 
-4.php artisan make:model Annonce
-remplir le modele d'apres les informations mises dans migrations
+4. php artisan make:model Annonce
+   remplir le modele d'apres les informations mises dans migrations
 
-5.php artisan make:seeder AnnoncesSeeder
-contenu seeder:  
- maybe Faker? and a for loop for X seeds
-php artisan db:seed --class=AnnoncesSeeder
+5. Create a seeder
+   php artisan make:seeder AnnoncesSeeder
+   contenu seeder:  
+    maybe Faker? and a for loop for X seeds
+   php artisan db:seed --class=AnnoncesSeeder
 
-6.
+6. Create a CRUD controller:
+   php artisan make:controller AnnonceController --resource
+   fill the crud methods inside.
+
+7. Create the views / blade files + layout for website.
+
+8. Define routes:
+   Route::resource('annonces', AnnonceController::class);
+   maps the controller routes
+
+9. Annonce validation controller
+   php artisan make:controller ValidateAnnonceController
+   create a validation method validateAnnonce($token)
+
+10. Route to /annonce/{token}
+    New route and validate controller on it
+
+11.
 
 ## License
 
