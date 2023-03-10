@@ -47,7 +47,16 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 10. Route to /annonce/{token}
     New route and validate controller on it
 
-11.
+11.Link Mailtrap by adding .env values
+
+12. Creer mail method
+    php artisan make:mail ConfirmationAnnonce
+    fill with methods inside (see git)
+    send it on AnnonceController > store
+    Mail::to($validated['email'])->send(new ConfirmationAnnonce($annonce));
+
+13. create .blades model for the confirmation mail
+    inside /ressources/emails/annonce_validation.blade.php
 
 ## License
 
