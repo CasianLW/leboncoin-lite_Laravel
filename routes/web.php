@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnnonceController;
+use App\Http\Controllers\ValidateAnnonceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,9 @@ use App\Http\Controllers\AnnonceController;
 Route::resource('annonces', AnnonceController::class);
 
 Route::get('/', [AnnonceController::class, 'index']);
+
+Route::get('/annonce/validation/{token}', [ValidateAnnonceController::class, 'validateAnnonce'])->name('validate.annonce');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
