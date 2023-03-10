@@ -6,6 +6,7 @@ use App\Mail\ConfirmationAnnonce;
 use App\Models\Annonce;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\MessageBag;
 
 class AnnonceController extends Controller
 {
@@ -136,13 +137,19 @@ class AnnonceController extends Controller
         /**
      * Remove the specified resource from storage.
       */
-    public function destroy($id)
-    {
-        $annonce = Annonce::find($id);
-        $annonce->delete();
-    
-        return redirect()->route('annonces.index')
-            ->with('success', 'Annonce deleted successfully.');
-    }}
+      public function destroy($token)
+      {
+          $annonce = Annonce::where('token', $token)->first();
+          if (!$annonce) {
+            $errors = new MessageBag(['Annonce not found']);
+              return redirect()->route('annonces.index')
+                  ->withErrors($errors);
+          }
+      
+          $annonce->delete();
+      
+          return redirect()->route('annonces.index')
+              ->with('success', 'Annonce deleted successfully.');
+      }}
 
 
