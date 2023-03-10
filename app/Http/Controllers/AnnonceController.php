@@ -15,7 +15,8 @@ class AnnonceController extends Controller
     public function index()
     {
         // $annonces = Annonce::all();
-        $annonces = Annonce::where('status', true)->get();
+        $annonces = Annonce::where('status', true)->orderBy('created_at', 'desc')
+        ->get();
         foreach ($annonces as $annonce) {
             $annonce->price /= 10;
         }
