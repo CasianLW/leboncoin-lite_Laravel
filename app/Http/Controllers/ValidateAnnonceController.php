@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Annonce;
 use Illuminate\Http\Request;
+use App\Mail\ConfirmedAnnonce;
 use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Mail;
 
 class ValidateAnnonceController extends Controller
 {
@@ -30,6 +32,9 @@ class ValidateAnnonceController extends Controller
 
         $annonce->status = 1;
         $annonce->save();
+        
+        Mail::to($annonce->email)->send(new ConfirmedAnnonce($annonce));
+
 
         return redirect()->route('annonces.index')
             ->with('success', 'Annonce validée avec succèss !');
