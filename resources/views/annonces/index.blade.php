@@ -32,11 +32,11 @@
                                 <td>
                                     <a href="{{ route('annonces.show', $annonce->id) }}" class="btn btn-sm btn-primary">Voir</a>
                                     <a href="{{ route('annonces.edit', $annonce->id) }}" class="btn btn-sm btn-warning">Modifier</a>
-                                    <form action="{{ route('annonces.destroy', $annonce->id) }}" method="POST" class="d-inline-block">
+                                    <!-- <form action="{{ route('annonces.destroy', $annonce->id) }}" method="POST" class="d-inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?')">Supprimer</button>
-                                    </form>
+                                    </form> -->
                                 </td>
                             </tr>
                         @endforeach
