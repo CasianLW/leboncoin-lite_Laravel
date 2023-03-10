@@ -21,6 +21,10 @@ Route::get('/', [AnnonceController::class, 'index']);
 
 Route::get('/annonce/validation/{token}', [ValidateAnnonceController::class, 'validateAnnonce'])->name('validate.annonce');
 
+
+Route::get('/annonces/delete/{token}', [AnnonceController::class, 'deleteViaMail'])->name('annonces-delete.destroy');
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
