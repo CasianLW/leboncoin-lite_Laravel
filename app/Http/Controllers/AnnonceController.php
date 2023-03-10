@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ConfirmationAnnonce;
 use App\Models\Annonce;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use App\Mail\ConfirmationAnnonce;
 use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConfirmedDeletedAnnonce;
 
 class AnnonceController extends Controller
 {
@@ -132,24 +133,34 @@ class AnnonceController extends Controller
         $annonce->save();
     
         return redirect()->route('annonces.index')
-            ->with('success', 'Annonce updated successfully.');
+            ->with('success', 'Annonce mise a jour avec succèss.');
     }
         /**
      * Remove the specified resource from storage.
       */
       public function destroy($token)
-      {
-          $annonce = Annonce::where('token', $token)->first();
-          if (!$annonce) {
+    {
+        $annonce = Annonce::where('token', $token)->first();
+        if (!$annonce) {
             $errors = new MessageBag(['Annonce not found']);
-              return redirect()->route('annonces.index')
-                  ->withErrors($errors);
-          }
-      
-          $annonce->delete();
-      
-          return redirect()->route('annonces.index')
-              ->with('success', 'Annonce deleted successfully.');
-      }}
+            return redirect()->route('annonces.index')->withErrors($errors);
+        }
+        $annonce->delete();
+
+        return redirect()->route('annonces.index')->with('success', 'Annonce supprimée.');
+}
+      public function deleteViaMail($token)
+    {
+        $annonce = Annonce::where('token', $token)->first();
+        if (!$annonce) {
+            $errors = new MessageBag(['Annonce not found']);
+            return redirect()->route('annonces.index')->withErrors($errors);
+        }
+        $annonce->delete();
+        Mail::to($annonce->email)->send(new ConfirmedDeletedAnnonce($annonce));
+
+
+        return redirect()->route('annonces.index')->with('success', 'Annonce supprimée via mail.');
+}}
 
 
