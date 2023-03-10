@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Mail\ConfirmationAnnonce;
 use App\Models\Annonce;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AnnonceController extends Controller
 {
@@ -41,7 +43,7 @@ class AnnonceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+       $validated = $request->validate([
             'title' => 'required|min:3',
             'email' => ['required','email','regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'],
             'name' => 'required',
@@ -64,9 +66,12 @@ class AnnonceController extends Controller
         $annonce->token = $token;
         $annonce->status = $request->status;
         $annonce->save();
+
+        Mail::to($validated['email'])->send(new ConfirmationAnnonce($annonce));
+
         
         return redirect()->route('annonces.index')
-            ->with('success', 'Annonce created successfully.');
+            ->with('success', 'Email de confirmation ennvoyé !');
     }
 
     /**
