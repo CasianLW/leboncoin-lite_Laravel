@@ -55,8 +55,30 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
     send it on AnnonceController > store
     Mail::to($validated['email'])->send(new ConfirmationAnnonce($annonce));
 
-13. create .blades model for the confirmation mail
+13. create .blade model for the confirm mail and success confirmation
     inside /ressources/emails/annonce_validation.blade.php
+    link it to /mails/ConfirmationAnnonce.php
+
+14. Send mail method success (confirmedAnnonce) on ValidateAnnonceController's store success
+    send it on ValidateAnnonceController > validateAnnonce($token)
+
+15. create .blade model for the success confirmation
+    inside /ressources/emails/annonce_validated.blade.php
+    link it to /mails/ConfirmedAnnonce.php
+
+16. Create a new method inside AnnonceController
+    deleteViaMail()
+    fill it and send mail on success
+    Link it to new route get->'/annonces/delete/{token}'
+
+17. create /mail/ for confirmedDeletedAnnonce
+    fill it with mail infos and link to blade
+
+18. create .blade model for the confirmed deleted annonce mail
+    inside /ressources/emails/annonce_deleted.blade.php
+    link it to /mails/ConfirmedDeletedAnnonce.php
+
+    Should work :)
 
 ## License
 
