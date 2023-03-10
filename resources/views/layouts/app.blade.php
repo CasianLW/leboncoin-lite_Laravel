@@ -10,6 +10,12 @@
     <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
     <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css"> 
 </head>
+
+<style>
+    .hide {
+    display: none;
+}
+</style>
 <body>
     <header>
         <!-- Navigation Bar -->
@@ -30,11 +36,39 @@
 
     <main class="py-4">
         <div class="container">
+        @if ($errors->any())
+    <div id="message-timeout" class="message-timeout alert alert-error" data-autohide>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+@if(session('success'))
+    <div id="message-timeout" class="alert alert-success" data-autohide>
+        {{ session('success') }}
+    </div>
+@endif
             @yield('content')
         </div>
     </main>
 
+
+
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+    <script defer>
+    window.onload = () => {
+        const messageTimeout = document.querySelector('#message-timeout[data-autohide]');
+        if (messageTimeout) {
+            console.log(messageTimeout);
+            const duration = 3000;
+            setTimeout(() => {
+                messageTimeout.classList.add('hide');
+            }, duration);
+        }
+    };
+</script>
 </body>
 </html>
