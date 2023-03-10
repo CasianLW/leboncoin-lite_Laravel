@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnnonceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('annonces', AnnonceController::class);
+
+Route::get('/', [AnnonceController::class, 'index']);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
