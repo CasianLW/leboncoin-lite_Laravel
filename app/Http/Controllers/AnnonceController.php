@@ -16,6 +16,9 @@ class AnnonceController extends Controller
     {
         // $annonces = Annonce::all();
         $annonces = Annonce::where('status', true)->get();
+        foreach ($annonces as $annonce) {
+            $annonce->price /= 10;
+        }
         return view('annonces.index', compact('annonces'));
     }
 
@@ -49,8 +52,18 @@ class AnnonceController extends Controller
     
         $token = \Illuminate\Support\Str::random(32);
     
-        Annonce::create(array_merge($request->all(), ['token' => $token]));
-    
+        // Annonce::create(array_merge($request->all(), ['token' => $token]));
+        $annonce = new Annonce();
+        $annonce->title = $request->title;
+        $annonce->email = $request->email;
+        $annonce->name = $request->name;
+        $annonce->description = $request->description;
+        $annonce->location = $request->location;
+        $annonce->price = $request->price * 10;
+        $annonce->token = $token;
+        $annonce->status = $request->status;
+        $annonce->save();
+        
         return redirect()->route('annonces.index')
             ->with('success', 'Annonce created successfully.');
     }
@@ -64,6 +77,7 @@ class AnnonceController extends Controller
     public function show($id)
     {
         $annonce = Annonce::find($id);
+        $annonce->price /= 10;
         return view('annonces.show', compact('annonce'));
     }
 
@@ -98,8 +112,17 @@ class AnnonceController extends Controller
             'status' => 'required|boolean',
         ]);
     
+        // $annonce = Annonce::find($id);
+        // $annonce->update($request->all());
         $annonce = Annonce::find($id);
-        $annonce->update($request->all());
+        $annonce->title = $request->title;
+        $annonce->email = $request->email;
+        $annonce->name = $request->name;
+        $annonce->description = $request->description;
+        $annonce->location = $request->location;
+        $annonce->price = $request->price * 10;
+        $annonce->status = $request->status;
+        $annonce->save();
     
         return redirect()->route('annonces.index')
             ->with('success', 'Annonce updated successfully.');
