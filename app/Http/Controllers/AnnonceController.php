@@ -43,7 +43,7 @@ class AnnonceController extends Controller
     {
         $request->validate([
             'title' => 'required|min:3',
-            'email' => 'required|email',
+            'email' => ['required','email','regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'],
             'name' => 'required',
             'description' => 'required|min:15',
             'location' => 'required',
