@@ -1,7 +1,13 @@
 $orange: #ff6e14;
 $orange-light: rgb(254, 240, 233);
+$shadow-light: rgba(58, 58, 58, 0.273);
 $white: #ffffff;
 $black: #000000;
+
+div,
+img {
+    width: inherit;
+}
 
 html {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -33,5 +39,80 @@ nav {
         li {
             list-style: none;
         }
+    }
+}
+.annonces-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.annonce-card {
+    height: fit-content;
+    .price {
+        color: $orange;
+        font-size: 32px;
+        font-weight: 700;
+    }
+    p {
+        padding: 0px 0;
+        margin: 0;
+        line-break: anywhere;
+    }
+    .infos-vendeur {
+        h4,
+        p {
+            text-align: center;
+        }
+        a {
+            margin: auto;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: $black;
+    }
+    box-shadow: 0px 1px 9px $shadow-light;
+    box-shadow: $orange;
+    border-radius: 25px;
+    overflow: clip;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    .card-img {
+        overflow: clip;
+        max-height: 160px;
+        display: flex;
+        justify-content: center;
+        background-color: $orange;
+    }
+    max-width: 300px;
+    img {
+        width: 250%;
+        height: 250%;
+    }
+    .btn {
+        margin-right: 16px;
+        float: right;
+        padding: 8px 28px;
+        font-weight: 700;
+        background-color: $orange-light;
+        color: $black;
+        border-radius: 12px;
+    }
+    .btn:hover {
+        background-color: $orange;
+        color: $white;
+    }
+}
+.email-vendeur {
+    font-size: 12px;
+}
+.infos-details,
+.infos-vendeur {
+    margin: 0 16px;
+}
+
+@media (max-width: 600px) {
+    .annonces-list {
+        justify-content: center;
     }
 }
