@@ -113,6 +113,10 @@ nav {
     color: $white;
 }
 
+form {
+    width: fit-content;
+}
+
 @media (max-width: 600px) {
     .annonces-list {
         justify-content: center;
