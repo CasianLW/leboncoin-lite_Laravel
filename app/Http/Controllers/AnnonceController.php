@@ -52,7 +52,6 @@ class AnnonceController extends Controller
             'description' => 'required|min:15',
             'location' => 'required',
             'price' => 'required|numeric',
-            'status' => 'required|boolean',
         ]);
     
         $token = \Illuminate\Support\Str::random(32);
@@ -66,7 +65,7 @@ class AnnonceController extends Controller
         $annonce->location = $request->location;
         $annonce->price = $request->price * 10;
         $annonce->token = $token;
-        $annonce->status = $request->status;
+        $annonce->status = false;
         $annonce->save();
 
         Mail::to($validated['email'])->send(new ConfirmationAnnonce($annonce));
