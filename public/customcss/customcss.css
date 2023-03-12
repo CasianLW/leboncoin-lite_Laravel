@@ -1,3 +1,8 @@
+div,
+img {
+  width: inherit;
+}
+
 html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -28,4 +33,82 @@ nav .navbar-brand {
 }
 nav .navbar-collapse li {
   list-style: none;
+}
+
+.annonces-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.annonce-card {
+  height: -moz-fit-content;
+  height: fit-content;
+  box-shadow: 0px 1px 9px rgba(58, 58, 58, 0.273);
+  box-shadow: #ff6e14;
+  border-radius: 25px;
+  overflow: clip;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+.annonce-card .price {
+  color: #ff6e14;
+  font-size: 32px;
+  font-weight: 700;
+}
+.annonce-card p {
+  padding: 0px 0;
+  margin: 0;
+  line-break: anywhere;
+}
+.annonce-card .infos-vendeur h4,
+.annonce-card .infos-vendeur p {
+  text-align: center;
+}
+.annonce-card .infos-vendeur a {
+  margin: auto;
+}
+.annonce-card a {
+  text-decoration: none;
+  color: #000000;
+}
+.annonce-card .card-img {
+  overflow: clip;
+  max-height: 160px;
+  display: flex;
+  justify-content: center;
+  background-color: #ff6e14;
+}
+.annonce-card img {
+  width: 250%;
+  height: 250%;
+}
+.annonce-card .btn {
+  margin-right: 16px;
+  float: right;
+  padding: 8px 28px;
+  font-weight: 700;
+  background-color: rgb(254, 240, 233);
+  color: #000000;
+  border-radius: 12px;
+}
+.annonce-card .btn:hover {
+  background-color: #ff6e14;
+  color: #ffffff;
+}
+
+.email-vendeur {
+  font-size: 12px;
+}
+
+.infos-details,
+.infos-vendeur {
+  margin: 0 16px;
+}
+
+@media (max-width: 600px) {
+  .annonces-list {
+    justify-content: center;
+  }
 }/*# sourceMappingURL=customcss.css.map */
