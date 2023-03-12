@@ -11,6 +11,8 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Project steps
 
+### Backend & basic front
+
 1. install laravel
    composer create-project --prefer-dist laravel/laravel project-name
 
@@ -79,6 +81,11 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
     link it to /mails/ConfirmedDeletedAnnonce.php
 
     Should work :)
+
+### More complex front
+
+1. Be creative
+2. Have fun
 
 ## License
 
