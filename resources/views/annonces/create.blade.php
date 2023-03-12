@@ -31,14 +31,14 @@
                     <label for="price">Prix</label>
                     <input type="number" name="price" id="price" class="form-control">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="token">Token</label>
                     <input type="text" name="token" id="token" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="status">Status</label>
                     <input type="number" name="status" id="status" class="form-control">
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-primary">Créer</button>
             </form>
         </div>
