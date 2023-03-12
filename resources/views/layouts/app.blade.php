@@ -8,7 +8,9 @@
 
     <!-- Styles -->
     <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
-    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css"> 
+    <!-- <link rel="stylesheet" href="../../css/style.css"> -->
+    <link rel="stylesheet" href="{{ asset('customcss/customcss.css') }}">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css">  -->
 </head>
 
 <style>
