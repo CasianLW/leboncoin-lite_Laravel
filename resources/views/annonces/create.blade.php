@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<button class="btn" onclick="goBack()">Retour aux annonces</button>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">

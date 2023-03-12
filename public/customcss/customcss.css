@@ -49,7 +49,7 @@ nav .navbar-collapse li {
   border-radius: 25px;
   overflow: clip;
   padding-bottom: 12px;
-  margin-bottom: 20px;
+  margin: 0 12px 40px 12px;
   max-width: 300px;
 }
 .annonce-card .price {
