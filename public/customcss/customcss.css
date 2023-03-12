@@ -109,6 +109,11 @@ nav .navbar-collapse li {
   color: #ffffff;
 }
 
+form {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 @media (max-width: 600px) {
   .annonces-list {
     justify-content: center;
