@@ -29,6 +29,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">Home</a>
+                            <a href="{{ route('annonces.create') }}" class="nav-link">Créer une annonce</a>
                         </li>
                     </ul>
                 </div>
