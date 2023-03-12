@@ -10,8 +10,12 @@
 <p><strong>Description:</strong> {{ $annonce->description }}</p>
 <p><strong>Ville:</strong> {{ $annonce->location }}</p>
 <p><strong>Prix:</strong> {{ $annonce->price }}</p>
-<p><strong>Token:</strong> {{ $annonce->token }}</p>
-<p><strong>Status:</strong> {{ $annonce->status }}</p>
+
+
+<!-- <p><strong>Token:</strong> {{ $annonce->token }}</p>
+<p><strong>Status:</strong> {{ $annonce->status }}</p> -->
+
+
 <!-- <a href="{{ route('annonces.edit', $annonce->id) }}" class="btn btn-warning">Modifier</a>
 <form action="{{ route('annonces.destroy', $annonce->id) }}" method="POST" class="d-inline-block">
 @csrf
