@@ -84,19 +84,6 @@ nav .navbar-collapse li {
   width: 250%;
   height: 250%;
 }
-.annonce-card .btn {
-  margin-right: 16px;
-  float: right;
-  padding: 8px 28px;
-  font-weight: 700;
-  background-color: rgb(254, 240, 233);
-  color: #000000;
-  border-radius: 12px;
-}
-.annonce-card .btn:hover {
-  background-color: #ff6e14;
-  color: #ffffff;
-}
 
 .email-vendeur {
   font-size: 12px;
@@ -105,6 +92,21 @@ nav .navbar-collapse li {
 .infos-details,
 .infos-vendeur {
   margin: 0 16px;
+}
+
+.btn {
+  margin-right: 16px;
+  float: right;
+  padding: 8px 28px;
+  font-weight: 700;
+  background-color: rgb(254, 240, 233);
+  color: #000000;
+  border-radius: 12px;
+}
+
+.btn:hover {
+  background-color: #ff6e14;
+  color: #ffffff;
 }
 
 @media (max-width: 600px) {
