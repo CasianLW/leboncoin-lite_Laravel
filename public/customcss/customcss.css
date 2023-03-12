@@ -1,3 +1,31 @@
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-  background-color: purple;
+  margin: 0 5vw;
+  overflow-x: hidden;
+}
+
+nav {
+  margin-top: 28px;
+}
+nav .nav-link {
+  color: #ff6e14;
+  padding: 4px 20px;
+  font-weight: 600;
+  border-radius: 12px;
+}
+nav .nav-link:hover {
+  background-color: rgb(254, 240, 233);
+  color: #000000;
+}
+nav .navbar-brand {
+  color: #ff6e14;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+nav .navbar-collapse li {
+  list-style: none;
 }/*# sourceMappingURL=customcss.css.map */

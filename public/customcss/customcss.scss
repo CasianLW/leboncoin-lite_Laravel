@@ -1,3 +1,37 @@
+$orange: #ff6e14;
+$orange-light: rgb(254, 240, 233);
+$white: #ffffff;
+$black: #000000;
+
+html {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 body {
-    background-color: purple;
+    margin: 0 5vw;
+    overflow-x: hidden;
+}
+
+nav {
+    margin-top: 28px;
+    .nav-link {
+        color: #ff6e14;
+        padding: 4px 20px;
+        font-weight: 600;
+        border-radius: 12px;
+    }
+    .nav-link:hover {
+        background-color: $orange-light;
+        color: $black;
+    }
+    .navbar-brand {
+        color: $orange;
+        font-size: 24px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .navbar-collapse {
+        li {
+            list-style: none;
+        }
+    }
 }
