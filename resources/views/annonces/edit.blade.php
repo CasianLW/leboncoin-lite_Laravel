@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<a class="btn" href="/">Retour aux annonces</a>
+
 <div class="container">
 <div class="row">
 <div class="col-md-12">
