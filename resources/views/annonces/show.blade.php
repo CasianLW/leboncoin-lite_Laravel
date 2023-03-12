@@ -12,11 +12,11 @@
 <p><strong>Prix:</strong> {{ $annonce->price }}</p>
 <p><strong>Token:</strong> {{ $annonce->token }}</p>
 <p><strong>Status:</strong> {{ $annonce->status }}</p>
-<a href="{{ route('annonces.edit', $annonce->id) }}" class="btn btn-warning">Modifier</a>
+<!-- <a href="{{ route('annonces.edit', $annonce->id) }}" class="btn btn-warning">Modifier</a>
 <form action="{{ route('annonces.destroy', $annonce->id) }}" method="POST" class="d-inline-block">
 @csrf
 @method('DELETE')
-<button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?')">Supprimer</button>
+<button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?')">Supprimer</button> -->
 </form>
 </div>
 </div>
