@@ -114,6 +114,16 @@ form {
   width: fit-content;
 }
 
+header {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.navbar {
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+}
+
 @media (max-width: 600px) {
   .annonces-list {
     justify-content: center;
